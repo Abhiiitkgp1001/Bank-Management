@@ -1,0 +1,209 @@
+#include<iostream>
+#include<cstdio>
+#include<algorithm>
+#include<stdlib.h>
+#include<string>
+using namespace std;
+class Account
+{
+    public:
+    long an;
+    string name,sname;
+    float m;
+    int t;
+    void createaccount()
+    {
+        system("cls");
+        cout<<"\n\n\t\tCreate Account\n\n Enter first name:---> ";
+        cin>>name;
+        cout<<" Enter last name:---> ";
+        cin>>sname;
+        transform(name.begin(), name.end(), name.begin(),::toupper);
+        transform(sname.begin(), sname.end(), sname.begin(),::toupper);
+        cout<<" Enter the A/c no.(9 digits):---> ";
+        cin>>an;
+        cout<<" Enter the amount:---> ";
+        cin>>m;
+        cout<<" Type of account\n Savings:----1\n Current:----2  :---> ";
+        while(true){
+                cin>>t; if(t==1||t==2) break;
+                        else{cout<<" Enter a Valid Entry!...\n Type:---> "; }}
+        cout<<"\n\t\tAccount Created Successfully!!!\n\n Press Enter to Proceed";
+        char ch=getchar();
+    }
+    void showaccount()
+    {
+        system("cls");
+        cout<<"\n\n\t\tAccount Infomation\n\n Name:---> "<<name<<" "<<sname<<"\n A/c no.:---> "<<an<<"\n Balance:---> "<<m<<"\n Type:---> ";
+        if(t==1)
+        cout<<"Savings";
+        else
+        cout<<"Current";
+        char ch=getchar();
+    }
+    void deposit()
+    {
+        system("cls");
+        float dep;
+        cout<<"\n\n\t\tDeposit\n\n Enter the amount to be deposited:---> ";
+        cin>>dep;
+        m=m+dep;
+        cout<<"\n\t\tTransaction Successfull!!!\n\n Balance:---> "<<m;
+        char ch=getchar();
+    }
+    void drawmoney()
+    {
+        system("cls");
+        float dm;
+        cout<<"\n\n\t\tWithdraw\n\n Enter the amount to be withdrawn:---> ";
+        cin>>dm;
+        m=m-dm;
+        cout<<"\n\t\tTransaction Successfull!!!\n\n Balance:---> "<<m;
+        char ch=getchar();
+    }
+    void report()
+    {
+         cout<<"\n "<<name<<" "<<sname<<"\t\t\t\t"<<an<<"\t\t\t"<<m<<"\t\t\t";
+         if(t==1) cout<<"Savings";
+         else   cout<<"Current";
+    }
+    void modify()
+    {
+        system("cls");
+        cout<<"\n\n\t\tModify Account\n\n Enter first name:---> ";
+        cin>>name; transform(name.begin(),name.end(),name.begin(),::toupper);
+        cout<<" Enter last name:---> ";
+        cin>>sname; transform(sname.begin(),sname.end(),sname.begin(),::toupper);
+        cout<<" Enter the A/c no.(9 digits):---> ";
+        cin>>an;
+        cout<<" Enter the amount:---> ";
+        cin>>m;
+        cout<<" Type of account\n Savings:----1\n Current:----2  :---> ";
+        cin>>t;
+        cout<<"\n\t\tModified Successfully!!!";
+        char ch=getchar();
+    }
+    void acno(){
+        cout<<"\n "<<name<<" "<<sname<<"\t\t"<<an;
+        }
+    void bal(){
+        system("cls");
+        cout<<"\n\n Balance:---> "<<m;
+        char ch=getchar();
+        }
+    void type(){
+        system("cls");
+        if(t==1)
+            cout<<"\n\n Type:---> Savings";
+        else
+            cout<<"\n\n Type:---> Current";
+        char ch=getchar();
+    }
+};
+int main()
+{
+    Account cus[1000];string cusname,cussname;
+    char ch; int p; int i,op,j=0,k,c=0;long ano;
+    for(;;)
+    {
+
+        system("cls");
+        cout<<"\n\n\n\n\n\t\t\t\tWelcome to the BANK\n\n\n\n Press 1 to Continue else Press 0 to Exit...: ";
+        cin>>i;
+        if(i==1){
+            for(;;)
+            {
+                system("cls");
+                cout<<"\n\n\t\tSelect the Operation\n\n 1. Create A/c -----1\t\t2. Modify -----2\n 3. Deposit -----3\t\t4. Withdraw -----4\n 5. Report -----5\t\t6. A/c no. 6\n 7. Balance -----7\t\t8. Type -----8\n 9. A/c. Info -----9\t\t10.Exit -----0\n\n Enter your Choice:---> ";
+                cin>>op;
+                if(op==1){
+                    cus[j].createaccount();
+                    char ch=getchar();j++;}
+                else if(op==2){ano=0; system("cls"); c=0;
+                    cout<<"\n\n Enter the A/c no.:---> ";
+                    cin>>ano;
+                    for(k=0;k<j;k++)
+                    { if(cus[k].an==ano)
+                        {cus[k].modify(); c++; break;}}
+                    if(c==0) cout<<"\n\n\t Not Found!!!";
+                    cout<<"\n\t\t\tPress Enter to Continue!!!";
+                    if(c==0){char ch=getchar();ch=getchar();}
+                    else char ch=getchar();}
+                else if(op==3){ano=0; system("cls"); c=0;
+                    cout<<"\n\n Enter the A/c no.:---> ";
+                    cin>>ano;
+                    for(k=0;k<j;k++)
+                    { if(cus[k].an==ano)
+                        {cus[k].deposit(); c++; break;}}
+                    if(c==0) cout<<"\n\n\t Not Found!!!";
+                    cout<<"\n\t\t\tPress Enter to Continue!!!";
+                    if(c==0){char ch=getchar();ch=getchar();}
+                    else char ch=getchar();}
+                else if(op==4){ano=0; system("cls"); c=0;
+                    cout<<"\n\n Enter the A/c no.:---> ";
+                    cin>>ano;
+                    for(k=0;k<j;k++)
+                    { if(cus[k].an==ano)
+                        {cus[k].drawmoney(); c++; break;}}
+                    if(c==0) cout<<"\n\n\t Not Found!!!";
+                    cout<<"\n\t\t\tPress Enter to Continue!!!";
+                    if(c==0){char ch=getchar();ch=getchar();}
+                    else char ch=getchar();}
+                else if(op==5){system("cls");
+                    cout<<"\n\n Name\t\t\t\t\tA/c no.\t\t\t\tBalance\t\t\tType\n";
+                    for(k=0;k<j;k++)
+                     cus[k].report();
+                    cout<<"\n\n\t\t\tPress Enter to Continue!!!";
+                    char ch=getchar();ch=getchar();}
+                else if(op==6){system("cls");c=0;
+                    cout<<"\n\n Enter first name of Customer:---> ";
+                    cin>>cusname;
+                    cout<<" Enter last name of Customer:---> ";
+                    cin>>cussname;
+                    transform(cusname.begin(),cusname.end(),cusname.begin(),::toupper); transform(cussname.begin(),cussname.end(),cussname.begin(),::toupper);
+                    system("cls"); cout<<"\n\n Name\t\t\tA/c No.";
+                    for(k=0;k<j;k++)
+                    { if(cusname==cus[k].name&&cussname==cus[k].sname)
+                            {cus[k].acno();c++;}}
+                    if(c==0) cout<<"\n\n\t Not Found!!!";
+                    cout<<"\n\t\t\tPress Enter to Continue!!!";
+                    char ch=getchar();ch=getchar();}
+                else if(op==7){ano=0;system("cls"); c=0;
+                    cout<<"\n\n Enter the A/c no.:---> ";
+                    cin>>ano;
+                    for(k=0;k<j;k++)
+                    { if(cus[k].an==ano)
+                        {cus[k].bal();c++;break;}}
+                    if(c==0) cout<<"\n\n\t Not Found!!!";
+                    cout<<"\n\t\t\tPress Enter to Continue!!!";
+                    if(c==0){char ch=getchar();ch=getchar();}
+                    else char ch=getchar();}
+                else if(op==8){ano=0;system("cls"); c=0;
+                    cout<<"\n\n Enter the A/c no.:---> ";
+                    cin>>ano;
+                    for(k=0;k<j;k++)
+                    { if(cus[k].an==ano)
+                        {cus[k].type(); c++; break;}}
+                    if(c==0) cout<<"\n\n\t Not Found!!!";
+                    cout<<"\n\t\t\tPress Enter to Continue!!!";
+                    if(c==0){char ch=getchar();ch=getchar();}
+                    else char ch=getchar();}
+                else if(op==9){ano=0; system("cls"); c=0;
+                    cout<<"\n\n Enter the A/c no.:---> ";
+                    cin>>ano;
+                    for(k=0;k<j;k++)
+                    { if(cus[k].an==ano)
+                        {cus[k].showaccount(); c++; break;}}
+                    if(c==0) cout<<"\n\n\t Not Found!!!";
+                    cout<<"\n\t\t\tPress Enter to Continue!!!";
+                    if(c==0){char ch=getchar();ch=getchar();}
+                    else char ch=getchar();}
+                else{ break; }
+            }
+        }
+        else
+        break;
+    }
+}
+
+
