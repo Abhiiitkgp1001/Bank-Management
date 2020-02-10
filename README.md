@@ -5,11 +5,11 @@
 # Prerequisites
  > Code Blocks
 # Steps to run
- > Install Code Blocks
- > Create an empty file with .cpp extension
- > Copy and paste the code
- > Build the code
- > Run the code
+ > 1. Install Code Blocks\
+ > 2. Create an empty file with .cpp extension\
+ > 3. Copy and paste the code\
+ > 4. Build the code\
+ > 5. Run the code
 # Logic of the Program
  As stated a class(Account) is made containing the attributes and different functions(methods). The class is made public so that it can be
  accessed. An array of objects is created for multiple entry of accounts. To access a particular account, the account no of the customer
@@ -19,5 +19,5 @@
  entries a separate variable is used which increases its value as the create account option is accessed. The entrire code is writen in a 
  loop so that it can be accessed anytime without running the program multiple times. The code is written is c++ because it is handy,
  easily availble and easy to use...
-# Acknowledgement
+# Acknowledgement 
   KOSS - Kharagpur Open Source Society, IIT KGP
